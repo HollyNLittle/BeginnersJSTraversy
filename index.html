@@ -1,0 +1,172 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>JS for Beginners with Traversy Media</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="Styling.css" />
+    <!--<script src="JavaScript.js"></script> Use to link to a JavaScript file-->
+</head>
+<body>
+    <div class="header">
+        <page-header id="heading"><h1>JavaScript Fundamentals</h1><small>Learning JavaScript with Brad Traversy</small></page-header>
+    </div>
+
+    <div class="container">
+        <button onclick="changeText(this)">CLICK ME!</button>
+    </div>
+
+    <script>
+        //FUNCTIONS
+        function changeText(id){
+            var heading = document.getElementById('heading');
+            heading.innerHTML = 'You CLICKED!';
+        }
+
+        //function changeText(id) {
+        //    id.innerHTML = 'You Clicked';
+        //}
+
+
+        //ARRAY OF OBJECTS
+        //var users = [
+        //    {name:'John',
+        //age:50
+        //},
+
+        //{name: 'Mark',
+        //    age:20
+        //},
+        //]
+        //console.log(users[0].name);
+
+
+        //CONSTURCTOR PATTERN
+        //function Fruit(name, color, shape) {
+        //    this.name = name;
+        //    this.color = color;
+        //    this.shape = shape;
+            
+        //    this.describe = function () {
+        //        return 'A ' + this.name + ' is the color ' + this.
+        //            color + ' and is the shape ' + this.shape;
+        //    }
+        //}
+
+        //var melon = new Fruit('melon', 'green', 'round');
+        //console.log(melon.describe());
+
+
+        //OBJECT CONSTRUCTOR
+        //var apple = new Object();
+        //apple.color = 'red';
+        //apple.shape = 'round';
+        //apple.describe = function () {
+        //    return 'An apple is the color' + this.color + 'and is the shape'+this.shape;
+        //}
+        //console.log(apple.describe());
+
+
+
+
+
+        //OBJECT LITERAL
+        //var person = {
+        //    firstName: 'Holly',
+        //    lastName: 'Aboagye',
+        //    age: '34',
+        //    children: ['Richard', 'Cameron'],
+        //    address: {
+        //        street: '555 Something St.',
+        //        city: 'Boston',
+        //        state: 'MA'
+        //    },
+        //    fullName: function () {
+        //        return this.firstName + " " + this.lastName;
+        //    }
+        //}
+        //console.log(person.fullName());
+        //console.log(person.address);
+        //console.log(person.firstName);
+
+
+        //CONDITIONALS
+        //SWITCH
+        var fruit = 'apple';
+        switch (fruit) {
+            case "banana":
+                alert('I hate bananas!');
+                break;
+            case "apple":
+                alert('I LOVE apples!');
+                break;
+            case "grapes":
+                alert('I hate grapes!');
+                break;
+            default:
+                alert('I love all other fruits!');
+                break;
+        }
+
+        //IF ELSE
+        var var1 = 1;
+        var var2 = 2;
+        if (var1 === var2) {
+            console.log('var1 and var2 are the same.');
+        }
+        else if (!var1 === var2) {
+            console.log('var1 and var2 are not the same.');
+        }
+
+        //LOOPS:
+        //FOREACH
+        var numbersArray = [11, 22, 33, 44, 55, 66];
+
+        numbersArray.forEach(function (number) {
+            console.log(number)
+        });
+
+        //WHILE
+        for (var i = 0; i < length; i++) {
+            console.log(numbers(i));
+        }
+
+
+
+        var v = 0;
+        while (v < 10) {
+            console.log(v);
+        }
+
+
+        //FOR initialize once, condition, increment
+        for (var i = 0; i < 10; i++) {
+            console.log(i);
+        }
+
+
+
+
+        //ARRAYS
+        var oddNumbers = [3, 5, 7, 9];
+        //alert(numbers[0] + numbers[1]);
+        //alert(numbers.length);
+        //alert(numbers.reverse());
+        //alert(numbers.sort());
+
+        //STRINGS
+        var colors = ['red', 'blue', 'green'];
+        var rainbow = new Array('red', 'orange', 'yellow');
+        //alert(colors[1]);
+        //alert(rainbow[1])
+        //ADD TO ARRAY
+        colors.push('purple');
+        //alert(colors[3])
+
+        //var number1 = '35';
+        //var number2 = 30;
+        //alert(number1 + number2);
+
+    </script>
+
+</body>
+</html>
