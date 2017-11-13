@@ -1,0 +1,116 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>My Google Map</title>
+	<meta charset="utf-8" />
+	<!--control the map display using the map id in header-->
+	<style>
+		#map {
+			height: 400px;
+			width: 100%;
+		}
+	</style>
+</head>
+<body>
+	<h1>My Google Map</h1>
+	<div id="map"></div>
+	<script>
+
+		function initMap() {
+			//<!--Map options; zoom level and the latitude(+) and longitude(-) of the location-->
+
+			var options = {
+				zoom: 8,
+				center: {
+					lat: 41.4993, lng: -81.6944
+				}
+			}
+			//New map
+			var map = new google.maps.Map(document.getElementById('map'), options);
+			/*
+			//Add marker: takes an object w/ position
+			var marker = new google.maps.Marker({
+				position: { lat: 41.4972, lng: -81.6940 },
+				map: map,
+				//Add custom icon
+				icon:'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'
+			});
+			Add infoWindow to display Tower City when clicked
+			var infoWindow = new google.maps.InfoWindow({
+				content:'<h1>Tower City</h1>'
+			});
+			marker.addListener('click', function () {
+				infoWindow.open(map, marker);
+			});
+		}
+		*/
+			//Array of Markers
+			var markers = [
+{
+	coords: { lat: 41.4972, lng: -81.6940 },
+	iconImage: //beach icon
+	'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+	content: '<h1>Tower City</h1>'
+},
+{
+	coords: { lat: 41.5090, lng: -81.6116 },
+	content: '<h1>Cleveland Museum of Art</h1>'
+},
+{
+	coords: { lat: 41.4124, lng: -81.8480 },
+	content: '<h1>Airport</h1>'
+}
+			];
+			//Loop through the markers array to add the markers instead of calling addMarker each time
+			for (var i = 0; i < markers.length; i++) {
+				addMarker(markers[i]);
+			}
+
+			//Don't need these due to created the array
+			//Add multiple markers and add PROPERTIES to them for customization
+			//addMarker({
+			//	coords: { lat: 41.4972, lng: -81.6940 },
+			//	iconImage: //beach icon
+			//	'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+			//	content: '<h1>Tower City</h1>'
+			//});
+			//addMarker({
+			//	coords: { lat: 41.5090, lng: -81.6116 },
+			//	content: '<h1>Cleveland Museum of Art</h1>'
+			//});
+			//addMarker({
+			//	coords: { lat: 41.4124, lng: -81.8480 },
+			//	content: '<h1>Airport</h1>'
+			//});
+
+
+			//Add marker function
+			function addMarker(props) {
+				var marker = new google.maps.Marker({
+					position: props.coords,
+					map: map,
+					//Add custom icon - beach icon
+					//icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'
+				});
+				//Check for customized marker
+				if (props.iconImage) {
+					//Set icon image
+					marker.setIcon(props.iconImage);
+				}
+				//Check for content
+				if (props.content) {
+					var infoWindow = new google.maps.InfoWindow({
+						content: props.content
+					});
+					marker.addListener('click', function () {
+						infoWindow.open(map, marker);
+					});
+				}
+			}
+		}
+	</script>
+	<script async defer
+			src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCLgS1srLExWmG28gQBSS1ma-ppAwmfB4Y&callback=initMap">
+	</script>
+</body>
+</html>
